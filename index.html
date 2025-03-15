@@ -1,0 +1,1432 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+   <head>
+      <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+      <meta name="description" content="{{project.meta.ogDescription}}">
+      <meta name="theme-color" content="#ffffff">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="robots" content="{{project.meta.robotsMeta}}">
+      
+      <title>{{project.seoTitle}}</title>
+      <!-- SEO Description -->
+      <meta name="description" content="{{project.seoDescription}}">
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+       
+      
+      <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+
+      <!-- Performance optimization: Preload critical resources -->
+      <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+      
+      <!-- Header Scripts -->
+      <script id="header-scripts">
+        // This script tag will be replaced with actual scripts.head content
+        if (window.scripts && window.scripts.head) {
+          document.getElementById('header-scripts').outerHTML = window.scripts.head;
+        }
+      </script>
+
+      <!-- Preconnect -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+      <!-- Font stylesheet -->
+
+      <script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+
+      <!-- Core CSS -->
+      <script src="https://cdn.tailwindcss.com"></script>
+
+      <!-- Email Client -->
+      <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+      <script src="email.js"></script>
+
+
+      <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                primary: {
+                  DEFAULT: '{{settings.colors.primary}}',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8', 
+                  200: '#d3d3d3',
+                  300: '#a3a3a3',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+                secondary: {
+                  DEFAULT: '{{settings.colors.secondary}}',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3', 
+                  300: '#a3a3a3',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+                accent: {
+                  DEFAULT: '{{settings.colors.accent}}',
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3',
+                  300: '#a3a3a3', 
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+              },
+              fontFamily: {
+                sans: ['{{settings.fonts.primary}}', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                heading: ['{{settings.fonts.secondary}}', 'Inter', 'system-ui', 'sans-serif'],
+                body: ['{{settings.fonts.secondary}}', 'Inter', 'system-ui', 'sans-serif'],
+              },
+              spacing: {
+                '18': '4.5rem',
+                '22': '5.5rem',
+                '30': '7.5rem',
+              },
+              maxWidth: {
+                '8xl': '88rem',
+                '9xl': '96rem',
+              },
+              animation: {
+                'fade-in': 'fadeIn 0.5s ease-in',
+                'fade-out': 'fadeOut 0.5s ease-out',
+                'slide-up': 'slideUp 0.5s ease-out',
+                'slide-down': 'slideDown 0.5s ease-out',
+                'slide-left': 'slideLeft 0.5s ease-out',
+                'slide-right': 'slideRight 0.5s ease-out',
+                'scale-in': 'scaleIn 0.5s ease-out',
+                'scale-out': 'scaleOut 0.5s ease-out',
+                'spin-slow': 'spin 3s linear infinite',
+                'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'bounce-slow': 'bounce 3s infinite',
+                'float': 'float 3s ease-in-out infinite',
+              },
+              keyframes: {
+                fadeIn: {
+                  '0%': { opacity: '0' },
+                  '100%': { opacity: '1' },
+                },
+                fadeOut: {
+                  '0%': { opacity: '1' },
+                  '100%': { opacity: '0' },
+                },
+                slideUp: {
+                  '0%': { transform: 'translateY(20px)', opacity: '0' },
+                  '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                slideDown: {
+                  '0%': { transform: 'translateY(-20px)', opacity: '0' },
+                  '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                slideLeft: {
+                  '0%': { transform: 'translateX(20px)', opacity: '0' },
+                  '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                slideRight: {
+                  '0%': { transform: 'translateX(-20px)', opacity: '0' },
+                  '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                scaleIn: {
+                  '0%': { transform: 'scale(0.9)', opacity: '0' },
+                  '100%': { transform: 'scale(1)', opacity: '1' },
+                },
+                scaleOut: {
+                  '0%': { transform: 'scale(1.1)', opacity: '0' },
+                  '100%': { transform: 'scale(1)', opacity: '1' },
+                },
+                float: {
+                  '0%, 100%': { transform: 'translateY(0)' },
+                  '50%': { transform: 'translateY(-10px)' },
+                },
+              },
+              aspectRatio: {
+                'portrait': '3/4',
+                'landscape': '4/3',
+                'ultrawide': '21/9',
+              },
+            },
+          },
+          variants: {
+            extend: {
+              opacity: ['disabled'],
+              cursor: ['disabled'],
+              backgroundColor: ['active', 'disabled'],
+              textColor: ['active', 'disabled'],
+            },
+          },
+        }
+      });
+      </script>
+
+      <!-- Utilities and Components -->
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js"></script>
+      
+      <!-- Optimized Font Loading -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      
+      <!-- Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+      <!-- Dynamic Meta Tags -->
+      <meta name="description" content="{{project.meta.ogDescription}}">
+      <meta name="keywords" content="{{project.meta.keywords}}">
+      <meta name="robots" content="{{project.meta.robotsMeta}}">
+      <meta name="google-site-verification" content="{{project.meta.googleVerification}}">
+      <meta name="baidu-verification" content="{{project.meta.baiduVerification}}">
+      <meta name="yandex-verification" content="{{project.meta.yandexVerification}}">
+      <meta name="bing-verification" content="{{project.meta.bingVerification}}">
+      <meta property="og:title" content="{{project.meta.ogTitle}}">
+      <meta property="og:description" content="{{project.meta.ogDescription}}">
+      <meta property="og:image" content="{{project.meta.ogImage}}">
+      <meta property="og:type" content="website">
+      <meta property="og:locale" content="en_US">
+      <meta property="og:site_name" content="{{project.name}}">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="{{project.meta.ogTitle}}">
+      <meta name="twitter:description" content="{{project.meta.ogDescription}}">
+      <meta name="twitter:image" content="{{project.meta.ogImage}}">
+    
+      
+      <link rel="icon" type="image/x-icon" href="{{settings.favicon}}">
+      
+      <style>
+        h1, h2, h3, h4, h5, h6 {
+          font-family: {{settings.fonts.primary}}, Inter, system-ui, sans-serif;
+        }
+        body {
+          font-family: {{settings.fonts.secondary}}, Inter, system-ui, sans-serif;
+        }
+      </style>
+   </head>
+   <body class="antialiased text-gray-800 min-h-screen flex flex-col">
+      <!-- Skip to main content link for accessibility -->
+      <a href="#main-content" 
+         class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-white focus:text-black">
+         Skip to main content
+      </a>
+
+      <!-- Main content area -->
+      <main id="main-content" class="flex-1 relative h-full">
+        <!-- Content will be injected here -->
+      </main>
+
+      <!-- {bodyScripts} -->
+      
+   </body>
+</html><script>window.projectId = "bbd0be03-2b2b-417f-9203-c491c4dca8b2";</script><div id='RolloutPageContent'><element id="f52d9401-e6a9-4946-8355-412c5ef7948f" data-section-id="f52d9401-e6a9-4946-8355-412c5ef7948f">
+
+
+                
+                <htmlcode id="el-gehzjom4">
+<div id="root">
+  <nav id="navbar" class="fixed w-full z-50 bg-neutral-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="el-ilsaj9p1">
+      <div class="flex items-center justify-between h-16" id="el-2prypve5">
+        <div class="flex-shrink-0" id="el-t1dhe0mc">
+          <span class="text-xl font-bold font-mono" id="el-50t553ch">[ Anbu Suriya Kumar ]</span>
+        </div>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:block" id="el-97k9soq7">
+          <div class="ml-10 flex items-baseline space-x-4" id="el-dkmmpvrn">
+            <a href="#hero" class="hover:bg-neutral-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200" id="el-fb4irazr">Home</a>
+            <a href="#professional_summary" class="hover:bg-neutral-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200" id="el-s5cc8mhr">About</a>
+            <a href="#experience" class="hover:bg-neutral-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200" id="el-o2iycm2x">Experience</a>
+            <a href="#projects_showcase" class="hover:bg-neutral-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200" id="el-z2glggyd">Projects</a>
+            <a href="#skills_matrix" class="hover:bg-neutral-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200" id="el-oaqui8i5">Skills</a>
+            <a href="#contact" class="hover:bg-neutral-700 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200" id="el-ibbrvok3">Contact</a>
+          </div>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden" id="el-vral4smp">
+          <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-neutral-700 focus:outline-none">
+            <span class="sr-only" id="el-0us1oqrx">Open main menu</span>
+            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" id="el-2ug3naub">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" id="el-4jnbvj3z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="hidden md:hidden bg-neutral-800" id="mobile-menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3" id="el-kfkox1m2">
+        <a href="#hero" class="block hover:bg-neutral-700 px-3 py-2 rounded-md text-base font-medium animate__animated animate__fadeInDown" id="el-u1isect6">Home</a>
+        <a href="#professional_summary" class="block hover:bg-neutral-700 px-3 py-2 rounded-md text-base font-medium animate__animated animate__fadeInDown" id="el-qi517gdh">About</a>
+        <a href="#experience" class="block hover:bg-neutral-700 px-3 py-2 rounded-md text-base font-medium animate__animated animate__fadeInDown" id="el-xw9t064g">Experience</a>
+        <a href="#projects_showcase" class="block hover:bg-neutral-700 px-3 py-2 rounded-md text-base font-medium animate__animated animate__fadeInDown" id="el-mz5sr8qf">Projects</a>
+        <a href="#skills_matrix" class="block hover:bg-neutral-700 px-3 py-2 rounded-md text-base font-medium animate__animated animate__fadeInDown" id="el-6khasip0">Skills</a>
+        <a href="#publications_research" class="block hover:bg-neutral-700 px-3 py-2 rounded-md text-base font-medium animate__animated animate__fadeInDown" id="el-xrem8vay">Research</a>
+        <a href="#contact" class="block hover:bg-neutral-700 px-3 py-2 rounded-md text-base font-medium animate__animated animate__fadeInDown" id="el-x4spi3hp">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      const isHidden = mobileMenu.classList.contains('hidden');
+      if (isHidden) {
+        mobileMenu.classList.remove('hidden');
+      } else {
+        mobileMenu.classList.add('hidden');
+      }
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
+        mobileMenu.classList.add('hidden');
+      }
+    });
+
+    // Close mobile menu when clicking on a link
+    const mobileLinks = mobileMenu.getElementsByTagName('a');
+    Array.from(mobileLinks).forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Add shadow on scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 0) {
+        navbar.classList.add('shadow-lg');
+      } else {
+        navbar.classList.remove('shadow-lg');
+      }
+    });
+  </script>
+</div>
+</htmlcode>
+              
+              </element><element id="42bc27ec-bbee-4f08-8f88-4e24809523d4" data-section-id="42bc27ec-bbee-4f08-8f88-4e24809523d4">
+
+
+                
+                <htmlcode id="el-swzvr1ic">
+<div id="root">
+  <section id="hero" class="min-h-[70vh] bg-neutral-900 text-white pt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-center h-full py-20" id="el-l9ro7a6x">
+  <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0" id="el-xbudrhrz">
+    <h1 class="text-4xl md:text-6xl font-bold mb-6 animate__animated animate__fadeInLeft" id="el-1u2ana9y">
+      <span class="text-blue-500" id="el-r5c74gj8">Data Science</span> Explorer
+    </h1>
+    <p class="text-xl md:text-2xl mb-8 text-neutral-300 font-mono animate__animated animate__fadeInLeft animate__delay-1s" id="el-3o1fq1id">
+      Transforming raw data into <br id="el-bujcgxdl">
+      <span class="typing-text inline-block text-blue-400" id="el-bf50atc5">Busi</span>
+    </p>
+    <div class="flex flex-wrap gap-4 justify-center md:justify-start animate__animated animate__fadeInUp animate__delay-2s" id="el-4mqeql01">
+      <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300" id="el-6y8as9x5">
+        Hire Me
+      </a>
+      <a href="#projects_showcase" class="border-2 border-blue-500 hover:bg-blue-500 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300" id="el-9xgfrbtl">
+        View Projects
+      </a>
+      <a href="resume.pdf" download="AnbuSuriya.pdf" target="_blank" class="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center gap-2" id="el-resume-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        </svg>
+        Resume
+      </a>
+    </div>
+  </div>
+  
+  <div class="md:w-1/2 animate__animated animate__fadeInRight" id="el-z3zfg6j7">
+    <div class="relative" id="el-i77fzqin">
+      <div class="w-full h-full absolute top-0 left-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full filter blur-3xl" id="el-4frwsgr1"></div>
+      <div class="relative z-10 p-8" id="el-wxosrnh1">
+        <pre class="text-sm md:text-base font-mono bg-neutral-800/50 p-6 rounded-lg shadow-xl" id="el-9bj0b1mt"><span class="text-pink-500" id="el-9zxkm0co">class</span> <span class="text-blue-400" id="el-8krv1f1c">DataScientist</span>:
+    <span class="text-green-400" id="el-e1r7yj00">def</span> <span class="text-yellow-300" id="el-or47q7l6">__init__</span>(self):
+        self.skills = [<span class="text-green-300" id="el-w155p4dx">"ML"</span>, <span class="text-green-300" id="el-hjin1n6o">"AI"</span>, <span class="text-green-300" id="el-zif178e4">"Python"</span>]
+        self.passion = <span class="text-green-300" id="el-sua2011f">"Data-Driven Solutions"</span>
+        
+    <span class="text-green-400" id="el-is3mku15">def</span> <span class="text-yellow-300" id="el-y0dp24x7">solve_problems</span>(self, data):
+        <span class="text-purple-400" id="el-xn7lhcnm">return</span> innovative_solutions</pre>
+      </div>
+    </div>
+  </div>
+</div>
+  </section>
+
+  <script>
+    const texts = [
+      "Actionable Insights",
+      "ML Solutions",
+      "AI Innovations",
+      "Business Value"
+    ];
+    
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingElement = document.querySelector('.typing-text');
+    
+    function type() {
+      const currentText = texts[textIndex];
+      
+      if (isDeleting) {
+        typingElement.textContent = currentText.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typingElement.textContent = currentText.substring(0, charIndex + 1);
+        charIndex++;
+      }
+      
+      if (!isDeleting && charIndex === currentText.length) {
+        isDeleting = true;
+        setTimeout(type, 1500);
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % texts.length;
+        setTimeout(type, 500);
+      } else {
+        setTimeout(type, isDeleting ? 100 : 200);
+      }
+    }
+    
+    type();
+  </script>
+</div>
+</htmlcode>
+              
+              </element><element id="6e4cbc34-eff9-40e3-8713-eec3feb7b857" data-section-id="6e4cbc34-eff9-40e3-8713-eec3feb7b857">
+
+
+                
+                
+                <htmlcode id="el-b8mus5sa">
+<div id="root">
+  <section id="professional_summary" class="py-20 bg-neutral-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="el-v5myeh6l">
+      <h2 class="text-4xl font-bold text-center mb-16 animate__animated animate__fadeInUp" id="el-wn4f6n02">
+        Professional <span class="text-blue-600" id="el-ng78kg1y">Summary</span>
+      </h2>
+
+      <div class="grid md:grid-cols-1 gap-12 items-center" id="el-4ctrr44o">
+        <div class="space-y-6 animate__animated animate__fadeInLeft w-full" id="el-e8c7d008">
+          <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-full" id="el-vxli1k5q">
+            <h3 class="text-2xl font-bold text-neutral-800 mb-4" id="el-bcqt51y6">Who I Am</h3>
+            <p class="text-neutral-600 leading-relaxed" id="el-5au7b30q">
+              Data Science and AI professional with a strong focus on Data Analytics, Machine Learning and a foundation in Software Development. My expertise includes working with data visualizations, statistical analysis, Generative AI, Natural Language Processing (NLP), and Large Language Models (LLMs). With a Master’s degree in Data Science and over three years of industry experience, I’ve developed ETL pipelines, AI-powered applications, and interactive dashboards that turn raw data into meaningful insights. Combining Data Science with Software Development, I bring a unique  ability to build AI powered applications. I’m passionate about using AI to tackle real-world challenges and enjoy working at the crossroads of data, automation, and innovation.
+            </p>
+          </div>
+
+          <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-full" id="el-4ypims4n">
+            <h3 class="text-2xl font-bold text-neutral-800 mb-4" id="el-vd3iclon">What I Bring</h3>
+            <ul class="space-y-3 text-neutral-600" id="el-s2gvq1qf">
+              <li class="flex items-center" id="el-f47urow1">
+                <svg class="w-5 h-5 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20" id="el-505hd3xa">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" id="el-bxzy0mov"></path>
+                </svg>
+                Strong foundation in ML & analytics – Skilled in statistical analysis, predictive modeling, and data-driven insights.
+              </li>
+              <li class="flex items-center" id="el-qyrajcqa">
+                <svg class="w-5 h-5 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20" id="el-q6u3ty95">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" id="el-6wpbqixy"></path>
+                </svg>
+                Expertise in Python, R & SQL – Proficient in data wrangling, analysis, and visualization.
+              </li>
+              <li class="flex items-center" id="el-hihkac7x">
+                <svg class="w-5 h-5 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20" id="el-18w9zufo">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" id="el-z7wt5o55"></path>
+                </svg>
+                AI & deep learning experience – Hands-on with Generative AI, NLP, and deep learning frameworks.
+              </li>
+              <li class="flex items-center" id="el-hihkac7x">
+                <svg class="w-5 h-5 text-blue-500 mr-2" fill="currentColor" viewBox="0 0 20 20" id="el-18w9zufo">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" id="el-z7wt5o55"></path>
+                </svg>
+                Proficiency in the M365 stack  and Azure - PowerBI, PowerApps, Power Automate, SharePoint, Dataverse, Tenant Administration, OAuth, REST API, Azure AD, Azure Data Factory 
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</htmlcode>
+              
+              
+              </element><element id="4d6a849c-d4bc-41b6-b687-e88cccbc7644" data-section-id="4d6a849c-d4bc-41b6-b687-e88cccbc7644">
+
+
+                
+                
+                <htmlcode id="el-itbm2r37">
+<div id="root">
+  <section id="skills_matrix" class="py-20 bg-neutral-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="el-i55wbsqh">
+      <h2 class="text-4xl font-bold text-center mb-16 animate__animated animate__fadeInUp" id="el-xeyng0fd">
+        Skills <span class="text-blue-500" id="el-mwyfbjl5">Matrix</span>
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="el-9anefrtm">
+        <!-- Programming Languages -->
+        <div class="bg-neutral-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 animate__animated animate__fadeInUp" id="el-c0zgom73">
+          <h3 class="text-xl font-bold mb-6 flex items-center" id="el-4tu0svh8">
+            <svg class="w-6 h-6 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="el-mbe6xp3n">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" id="el-zun0lxsx"></path>
+            </svg>
+            Programming Languages
+          </h3>
+          <div class="flex flex-wrap gap-4" id="el-c38x81lt">
+            <div class="bg-neutral-700 p-4 rounded-lg text-center hover:bg-neutral-600 transition-colors duration-300 whitespace-nowrap" id="el-kxf8wwny">
+              <span class="text-md font-medium" id="el-e5ftgmbv">Python</span>
+            </div>
+            <div class="bg-neutral-700 p-4 rounded-lg text-center hover:bg-neutral-600 transition-colors duration-300 whitespace-nowrap" id="el-qmzj2vn7">
+              <span class="text-md font-medium" id="el-xkf53943">SQL / T-SQL</span>
+            </div>
+            <div class="bg-neutral-700 p-4 rounded-lg text-center hover:bg-neutral-600 transition-colors duration-300 whitespace-nowrap" id="el-pdbmy8jo">
+              <span class="text-md font-medium" id="el-m3akl3hf">C#</span>
+            </div>
+            <div class="bg-neutral-700 p-4 rounded-lg text-center hover:bg-neutral-600 transition-colors duration-300 whitespace-nowrap" id="el-pdbmy8jo">
+              <span class="text-md font-medium" id="el-m3akl3hf">React</span>
+            </div>
+            <div class="bg-neutral-700 p-4 rounded-lg text-center hover:bg-neutral-600 transition-colors duration-300 whitespace-nowrap" id="el-pdbmy8jo">
+              <span class="text-md font-medium" id="el-m3akl3hf">SPFx</span>
+            </div>
+            <div class="bg-neutral-700 p-4 rounded-lg text-center hover:bg-neutral-600 transition-colors duration-300 whitespace-nowrap" id="el-pdbmy8jo">
+              <span class="text-md font-medium" id="el-m3akl3hf">PowerShell</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Machine Learning -->
+        <div class="bg-neutral-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 animate__animated animate__fadeInUp animate__delay-1s" id="el-gjpus61h">
+          <h3 class="text-xl font-bold mb-6 flex items-center" id="el-6unylm4b">
+            <svg class="w-6 h-6 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="el-9uuev1km">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" id="el-sqi0b9am"></path>
+            </svg>
+            Machine Learning
+          </h3>
+          <ul class="space-y-2" id="el-cudszbq9">
+            <li class="flex items-center" id="el-se3zq1p8">
+              <span class="w-2 h-2 bg-blue-500 rounded-full mr-2" id="el-0znp2zee"></span>
+              Classification, Regression, Boosting, Clustering Algorithms
+            </li>
+            <li class="flex items-center" id="el-i8yykno5">
+              <span class="w-2 h-2 bg-blue-500 rounded-full mr-2" id="el-ou6doedn"></span>
+              Scikit-learn, Keras, PyTorch, TensorFlow
+            </li>
+            <li class="flex items-center" id="el-irv829bb">
+              <span class="w-2 h-2 bg-blue-500 rounded-full mr-2" id="el-vnmo7dfs"></span>
+              Transformer models 
+            </li>
+            <li class="flex items-center" id="el-ygc3yhb9">
+              <span class="w-2 h-2 bg-blue-500 rounded-full mr-2" id="el-qiiq5f7l"></span>
+              NLP (LangChain, Llama2) 
+            </li>
+            <li class="flex items-center" id="el-v0g4n9p5">
+              <span class="w-2 h-2 bg-blue-500 rounded-full mr-2" id="el-u3nvdn1a"></span>
+              Predictive Analytics & A/B Testing 
+            </li>
+          </ul>
+        </div>
+
+        <!-- Data Science Tools -->
+        <div class="bg-neutral-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 animate__animated animate__fadeInUp animate__delay-2s" id="el-qkg39xlp">
+          <h3 class="text-xl font-bold mb-6 flex items-center" id="el-mzghqkkg">
+            <svg class="w-6 h-6 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="el-wsyv5qg2">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" id="el-41d8729w"></path>
+            </svg>
+            Data Science &amp; Tools
+          </h3>
+          <div class="flex flex-wrap gap-4" id="el-l622n0xc">
+    <div class="bg-neutral-700 p-3 rounded-lg text-center hover:bg-neutral-600 transition-colors duration-300 whitespace-nowrap" id="el-xgkvee59">
+      <span class="text-md" id="el-vaspnxe4">Statistical Analysis</span>
+    </div>
+    <div class="bg-neutral-700 p-3 rounded-lg text-center hover:bg-neutral-600 transition-colors duration-300 whitespace-nowrap" id="el-3yam8fyy">
+      <span class="text-md" id="el-72mx43fs">Data Visualization</span>
+    </div>
+    <div class="bg-neutral-700 p-3 rounded-lg text-center hover:bg-neutral-600 transition-colors duration-300 whitespace-nowrap" id="el-f62escmz">
+      <span class="text-md" id="el-z9vb5bj6">ETL Pipelines</span>
+    </div>
+    <div class="bg-neutral-700 p-3 rounded-lg text-center hover:bg-neutral-600 transition-colors duration-300 whitespace-nowrap" id="el-ykmtmy78">
+      <span class="text-md" id="el-msnr07uu">Power BI (DAX)</span>
+    </div>
+    <div class="bg-neutral-700 p-3 rounded-lg text-center hover:bg-neutral-600 transition-colors duration-300 whitespace-nowrap" id="el-c2fco4bf">
+      <span class="text-md" id="el-tlywal73">Tableau</span>
+    </div>
+    <div class="bg-neutral-700 p-3 rounded-lg text-center hover:bg-neutral-600 transition-colors duration-300 whitespace-nowrap" id="el-2yyy1o2w">
+      <span class="text-md" id="el-7ssbdfw0">Matplotlib</span>
+    </div>
+    <div class="bg-neutral-700 p-3 rounded-lg text-center hover:bg-neutral-600 transition-colors duration-300 whitespace-nowrap" id="el-2yyy1o2w">
+      <span class="text-md" id="el-7ssbdfw0">Seaborn</span>
+    </div>
+  </div>
+        </div>
+
+        <!-- Database and Cloud -->
+        <div class="bg-neutral-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 animate__animated animate__fadeInUp animate__delay-3s">
+          <h3 class="text-xl font-bold mb-6 flex items-center">
+            <svg class="w-6 h-6 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
+            </svg>
+            Database and Cloud
+          </h3>
+          <div class="flex flex-wrap gap-4">
+            <div class="bg-neutral-700 p-3 rounded-lg text-center hover:bg-neutral-600 transition-colors duration-300 whitespace-nowrap">
+              <span class="text-md">SQL Server</span>
+            </div>
+            <div class="bg-neutral-700 p-3 rounded-lg text-center hover:bg-neutral-600 transition-colors duration-300 whitespace-nowrap">
+              <span class="text-md">Snowflake</span>
+            </div>
+            <div class="bg-neutral-700 p-3 rounded-lg text-center hover:bg-neutral-600 transition-colors duration-300 whitespace-nowrap">
+              <span class="text-md">SharePoint</span>
+            </div>
+            <div class="bg-neutral-700 p-3 rounded-lg text-center hover:bg-neutral-600 transition-colors duration-300 whitespace-nowrap">
+              <span class="text-md">Azure</span>
+            </div>
+            <div class="bg-neutral-700 p-3 rounded-lg text-center hover:bg-neutral-600 transition-colors duration-300 whitespace-nowrap">
+              <span class="text-md">Azure Synapse</span>
+            </div>
+            <div class="bg-neutral-700 p-3 rounded-lg text-center hover:bg-neutral-600 transition-colors duration-300 whitespace-nowrap">
+              <span class="text-md">MS Fabric</span>
+            </div>
+            <div class="bg-neutral-700 p-3 rounded-lg text-center hover:bg-neutral-600 transition-colors duration-300 whitespace-nowrap">
+              <span class="text-md">Azure Data Factory</span>
+            </div>
+            <div class="bg-neutral-700 p-3 rounded-lg text-center hover:bg-neutral-600 transition-colors duration-300 whitespace-nowrap">
+              <span class="text-md">AWS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="bg-neutral-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 animate__animated animate__fadeInUp animate__delay-4s">
+          <h3 class="text-xl font-bold mb-6 flex items-center">
+            <svg class="w-6 h-6 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+            Soft Skills
+          </h3>
+          <ul class="space-y-2">
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+              Problem Solving
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+              Critical Thinking 
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+              Stakeholder Engagement
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+              Cross-Team Collaboration
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+              Project Management
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+              Agile Methodologies 
+            </li>
+          </ul>
+        </div>
+
+        <!-- Additional space for future skills -->
+        <div class="bg-neutral-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 animate__animated animate__fadeInUp animate__delay-5s">
+          <h3 class="text-xl font-bold mb-6 flex items-center">
+            <svg class="w-6 h-6 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+            </svg>
+            Continuous Learning
+          </h3>
+          <p class="text-neutral-300 mb-4">Always expanding my knowledge in:</p>
+          <div class="flex flex-wrap gap-4">
+            <div class="bg-neutral-700 p-3 rounded-lg text-center hover:bg-neutral-600 transition-colors duration-300 whitespace-nowrap">
+              <span class="text-md">Generative AI & LLMs</span>
+            </div>
+            <div class="bg-neutral-700 p-3 rounded-lg text-center hover:bg-neutral-600 transition-colors duration-300 whitespace-nowrap">
+              <span class="text-md">Data Engineering</span>
+            </div>
+            <div class="bg-neutral-700 p-3 rounded-lg text-center hover:bg-neutral-600 transition-colors duration-300 whitespace-nowrap">
+              <span class="text-md">Data Science Trends</span>
+            </div>
+            <div class="bg-neutral-700 p-3 rounded-lg text-center hover:bg-neutral-600 transition-colors duration-300 whitespace-nowrap">
+              <span class="text-md">Cloud Technologies</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-16 text-center animate__animated animate__fadeInUp animate__delay-6s" id="el-ddmax7mp">
+        <p class="text-neutral-400 max-w-2xl mx-auto" id="el-3lcwi0ti">
+          Continuously expanding my skill set and staying up-to-date with the latest developments in data science and machine learning technologies.
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+</htmlcode>
+              
+              
+              </element><element id="b4650ae2-c165-47e5-a89f-7358335c1400" data-section-id="b4650ae2-c165-47e5-a89f-7358335c1400">
+
+
+                
+                <htmlcode id="el-0xx1ph5y">
+<div id="root">
+  <section id="experience" class="py-20 bg-neutral-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="el-2ierv9dz">
+      <h2 class="text-4xl font-bold text-center mb-16 animate__animated animate__fadeInUp" id="el-304vpvas">
+        Work <span class="text-blue-600" id="el-pcnpa5zi">Experience</span>
+      </h2>
+
+      <div class="relative" id="el-eygfj2fv">
+        <!-- Timeline line -->
+        <div class="absolute left-0 md:left-1/2 ml-4 md:ml-0 h-full w-0.5 bg-blue-600 transform -translate-x-1/2" id="el-ld1w907b"></div>
+
+        <!-- Experience Items -->
+        <div class="space-y-16" id="el-51hjkqc5">
+          <!-- Experience 1 -->
+          <div class="relative group animate__animated animate__fadeInLeft" id="el-1u2u5wik">
+            <div class="md:w-1/2 md:pr-12 md:text-right ml-12 md:ml-0" id="el-bw0m55aq">
+              <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105" id="el-lkqrzs5m">
+                <span class="text-blue-600 font-semibold" id="el-o5qtq6lj">2024 - Present</span>
+                <h3 class="text-xl font-bold mt-2" id="el-voe4v3g3">Data Analyst</h3>
+                <p class="text-neutral-600 font-semibold" id="el-g38jpfyl">Tricubic Inc.</p>
+                <div class="mt-4 text-neutral-600" id="el-3irq6nrr">
+                  <ul class="space-y-2" id="el-jqrkmys3">
+                    <li id="el-4ui2fclr">• Developed a Meeting Minutes Tracker that processes Teams meeting transcripts using Azure OpenAI, summarizes discussions, extracts action items, and automates approvals & notifications via Power Automate.</li>
+                    <li id="el-4p4m15i5">• Built Tableau dashboards for data visualization, enhancing decision-making.</li>
+                    <li id="el-9192ch5h">• Created an EDA cheatsheet to streamline exploratory data analysis.</li>
+                  </ul>
+                </div>
+                <div class="mt-4 flex flex-wrap gap-2" id="el-20ap8fot">
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm" id="el-708zil4c">Azure OpenAI</span>
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm" id="el-f2zcd0mc">Power Automate</span>
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm" id="el-qq7gnffz">Tableau</span>
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm" id="el-qq7gnffz">Python</span>
+                </div>
+              </div>
+            </div>
+            <!-- Timeline dot -->
+            <div class="absolute left-0 md:left-1/2 mt-6 -ml-2 md:-ml-3 h-6 w-6 rounded-full bg-blue-600 border-4 border-white shadow" id="el-jox9bnzn"></div>
+          </div>
+
+          <!-- Experience 2 -->
+          <div class="relative group animate__animated animate__fadeInRight" id="el-jp2754em">
+            <div class="md:w-1/2 md:pl-12 ml-12 md:ml-auto" id="el-9r2cftqm">
+              <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105" id="el-vgb2dc0l">
+                <span class="text-blue-600 font-semibold" id="el-zo7phu9g">2022 - 2023</span>
+                <h3 class="text-xl font-bold mt-2" id="el-bpwbhzdo">Data Analyst</h3>
+                <p class="text-neutral-600 font-semibold" id="el-qboftzy1">Genpact Ltd.</p>
+                <div class="mt-4 text-neutral-600" id="el-eotjk4i6">
+                  <ul class="space-y-2" id="el-ukeg07l4">
+                    <li id="el-c9povcpw">• Developed interactive Power BI dashboards with PowerApps integration, providing real-time business insights.</li>
+                    <li id="el-c9povcpw">• Designed incremental data workflows to sync on-prem SQL data to Snowflake, ensuring real-time reporting and cost efficiency.</li>
+                    <li id="el-28ols5mh">• Integrated Adobe Analytics into a pharma company’s intranet, enabling real-time tracking of user activity and engagement.</li>
+                    <li id="el-lbox6e9x">• Built data pipelines & automated reporting with Azure Data Factory and Power Automate, improving operational efficiency by 15%</li>
+                    <li id="el-lbox6e9x">• Collaborated with stakeholders to gather requirements, design business applications, and optimize data visualization strategies.</li>
+                  </ul>
+                </div>
+                <div class="mt-4 flex flex-wrap gap-2" id="el-y9vcxnue">
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm" id="el-6yn6bb4z">Power BI</span>
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm" id="el-048bj8q2">PowerApps</span>
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm" id="el-nfy2q0yu">Power Automate</span>
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm" id="el-nfy2q0yu">Snoflake</span>
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm" id="el-6yn6bb4z">Azure Data Factory</span>
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm" id="el-048bj8q2">Adobe Analytics</span>
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm" id="el-nfy2q0yu">SQL</span>
+                </div>
+              </div>
+            </div>
+            <!-- Timeline dot -->
+            <div class="absolute left-0 md:left-1/2 mt-6 -ml-2 md:-ml-3 h-6 w-6 rounded-full bg-blue-600 border-4 border-white shadow" id="el-wc16jlm4"></div>
+          </div>
+
+          <!-- Experience 3 -->
+          <div class="relative group animate__animated animate__fadeInLeft" id="el-svwbafu4">
+            <div class="md:w-1/2 md:pr-12 md:text-right ml-12 md:ml-0" id="el-ss9bjtzb">
+              <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-105" id="el-bx1z71z0">
+                <span class="text-blue-600 font-semibold" id="el-h0y8w6od">2020 - 2022</span>
+                <h3 class="text-xl font-bold mt-2" id="el-561798cl">Data Analyst | M365 Specialist</h3>
+                <p class="text-neutral-600 font-semibold" id="el-7q0wim06">Avasoft Ltd.</p>
+                <div class="mt-4 text-neutral-600" id="el-gn8idz5o">
+                  <ul class="space-y-2" id="el-o3wd7l9z">
+                    <li id="el-il8xwjaa">• Built ETL pipelines using C# SSIS to transfer on-prem SQL data to SharePoint Lists, improving data retrieval efficiency by 30%.</li>
+                    <li id="el-37hviluh">• Designed Power BI dashboards embedded in SharePoint for real-time insights, collaborating with cloud teams for scalability.</li>
+                    <li id="el-f2uugx3n">• Migrated Lotus Notes databases to Azure SQL and Dataverse, enabling structured data access for business applications.</li>
+                    <li id="el-f2uugx3n">• Contributed to Azure Data Warehouse development, integrating multiple datasets for reporting in Azure Synapse.</li>
+                    <li id="el-f2uugx3n">• Automated data processing, approvals, and JSON-to-Excel transformations using Power Automate, reducing manual effort by 40%.</li>
+                    <li id="el-f2uugx3n">• Led migration of .NET & SQL Server applications to Microsoft 365 (PowerApps, Power Automate, SharePoint), ensuring seamless data transition.</li>
+                    <li id="el-f2uugx3n">• Developed a PowerApps demo with Power BI & Dataverse, later presented by Microsoft at a Power Platform Conference (10,000+ attendees).</li>
+                  </ul>
+                </div>
+                <div class="mt-4 flex flex-wrap gap-2" id="el-opgp0sy6">
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm" id="el-kdqsayl6">SQL Server</span>
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm" id="el-a6k9r9gs">SSIS</span>
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm" id="el-dxshb4gm">Azure SQL</span>
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm" id="el-a6k9r9gs">Dataverse</span>
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm" id="el-a6k9r9gs">Power BI</span>
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm" id="el-a6k9r9gs">SharePoint</span>
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm" id="el-a6k9r9gs">SPFx</span>
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm" id="el-a6k9r9gs">PowerApps</span>
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm" id="el-a6k9r9gs">Power Automate</span>
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm" id="el-a6k9r9gs">Azure Synapse</span>
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm" id="el-a6k9r9gs">C#</span>
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm" id="el-a6k9r9gs">.Net</span>
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm" id="el-a6k9r9gs">JavaScript</span>
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm" id="el-a6k9r9gs">PowerShell</span>
+                  <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm" id="el-a6k9r9gs">Azure Active Directory</span>
+                </div>
+              </div>
+            </div>
+            <!-- Timeline dot -->
+            <div class="absolute left-0 md:left-1/2 mt-6 -ml-2 md:-ml-3 h-6 w-6 rounded-full bg-blue-600 border-4 border-white shadow" id="el-wwj5icir"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</htmlcode>
+              
+              </element><element id="6224b7d4-e307-4ad5-9a9f-b5734cdb4ae3" data-section-id="6224b7d4-e307-4ad5-9a9f-b5734cdb4ae3">
+
+
+                
+                <htmlcode id="el-ulpbvv5m">
+<div id="root">
+  <section id="education" class="py-20 bg-neutral-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="el-5vr8v3fd">
+      <h2 class="text-4xl font-bold text-center mb-16 animate__animated animate__fadeInUp" id="el-ys2qgfaw">
+        Educational <span class="text-blue-500" id="el-g1cxqn7i">Background</span>
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-8" id="el-5f1p0d5h">
+        <!-- Masters Degree -->
+        <div class="bg-neutral-800 rounded-xl p-8 transform hover:-translate-y-2 transition-all duration-300 animate__animated animate__fadeInLeft" id="el-q0myz33s">
+          <div class="flex items-center justify-between mb-4" id="el-38ac7vav">
+            <div class="flex-shrink-0" id="el-62hb7wlj">
+              <div class="h-16 w-16 bg-blue-500 rounded-full flex items-center justify-center" id="el-9kl0lcsi">
+                <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="el-e2jxsb4s">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" id="el-r0ullju5"></path>
+                </svg>
+              </div>
+            </div>
+            <span class="text-blue-500 text-lg font-mono" id="el-khtai5ox">2023 - 2024</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-2" id="el-yzd410p2">Master of Science in Data Science</h3>
+          <p class="text-neutral-400 mb-4" id="el-ciwnoq8h">DePaul University</p>
+          <div class="space-y-2 text-neutral-300" id="el-5mmsm6tj">
+            <p class="flex items-center" id="el-0aoh1g02">
+              <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="el-pnni53au">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" id="el-dglmospm"></path>
+              </svg>
+              GPA: 3.7/4.0
+            </p>
+            <p class="font-semibold mt-4 mb-2" id="el-xx1nfzvg">Key Coursework:</p>
+            <ul class="grid grid-cols-2 gap-2" id="el-d4f8q7ge">
+              <li class="bg-neutral-700 px-3 py-1 rounded-full text-sm text-center" id="el-vy6y8zwi">Machine Learning</li>
+              <li class="bg-neutral-700 px-3 py-1 rounded-full text-sm text-center" id="el-q9gyrygi">Neural Networks and Deep Learning</li>
+              <li class="bg-neutral-700 px-3 py-1 rounded-full text-sm text-center" id="el-kiuub2ul">Data Visualization</li>
+              <li class="bg-neutral-700 px-3 py-1 rounded-full text-sm text-center" id="el-p7sv1qj4">Big Data Mining</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bachelors Degree -->
+        <div class="bg-neutral-800 rounded-xl p-8 transform hover:-translate-y-2 transition-all duration-300 animate__animated animate__fadeInRight" id="el-ycwsiu3t">
+          <div class="flex items-center justify-between mb-4" id="el-mokz6r5n">
+            <div class="flex-shrink-0" id="el-7akav7ie">
+              <div class="h-16 w-16 bg-blue-500 rounded-full flex items-center justify-center" id="el-7uol2wmi">
+                <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="el-487crue5">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" id="el-izu2j9th"></path>
+                </svg>
+              </div>
+            </div>
+            <span class="text-blue-500 text-lg font-mono" id="el-t8ef2817">2016 - 2020</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-2" id="el-0rq0m73m">Bachelor of Science in Computer Science</h3>
+          <p class="text-neutral-400 mb-4" id="el-irc99amo">Pondicherry University</p>
+          <div class="space-y-2 text-neutral-300" id="el-qs9pbc2o">
+            <p class="flex items-center" id="el-ozxr60hk">
+              <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="el-wa0yled1">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" id="el-os5mbqfv"></path>
+              </svg>
+              GPA: 3.3/4.0
+            </p>
+            <p class="font-semibold mt-4 mb-2" id="el-vo0bs3ca">Key Coursework:</p>
+            <ul class="grid grid-cols-2 gap-2" id="el-72r5xkug">
+              <li class="bg-neutral-700 px-3 py-1 rounded-full text-sm text-center" id="el-mcq8h3yk">Object Oriented Programming</li>
+              <li class="bg-neutral-700 px-3 py-1 rounded-full text-sm text-center" id="el-b7rrnwhw">Database Management Systems</li>
+              <li class="bg-neutral-700 px-3 py-1 rounded-full text-sm text-center" id="el-6g41fope">Data Structures</li>
+              <li class="bg-neutral-700 px-3 py-1 rounded-full text-sm text-center" id="el-b7rrnwhw">Artificial Intelligence</li>
+              <li class="bg-neutral-700 px-3 py-1 rounded-full text-sm text-center" id="el-n5vnmi9u">Statistics</li>
+              <li class="bg-neutral-700 px-3 py-1 rounded-full text-sm text-center" id="el-n5vnmi9u">Linear Algebra</li>   
+            </ul>
+          </div>
+        </div>
+
+        <!-- Certifications -->
+        <!-- 
+        <div class="md:col-span-2 mt-8 animate__animated animate__fadeInUp" id="el-dv1vo9qm">
+          <div class="bg-neutral-800 rounded-xl p-8" id="el-8icbjo7k">
+            <h3 class="text-2xl font-bold mb-6 flex items-center" id="el-32swdhq7">
+              <svg class="w-6 h-6 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="el-nc0dgpx4">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" id="el-cjxjp89d"></path>
+              </svg>
+              Professional Certifications
+            </h3>
+            <div class="grid md:grid-cols-3 gap-4" id="el-xcw3wkyv">
+              <div class="bg-neutral-700 p-4 rounded-lg" id="el-30mfl1j1">
+                <h4 class="font-bold mb-2" id="el-jgvdkspg">Deep Learning Specialization</h4>
+                <p class="text-neutral-400" id="el-hm3qpvy9">Coursera - DeepLearning.AI</p>
+              </div>
+              <div class="bg-neutral-700 p-4 rounded-lg" id="el-cckzxz0a">
+                <h4 class="font-bold mb-2" id="el-6agdrlqs">TensorFlow Developer Certificate</h4>
+                <p class="text-neutral-400" id="el-r3p7phz0">Google</p>
+              </div>
+              <div class="bg-neutral-700 p-4 rounded-lg" id="el-u3waj3z3">
+                <h4 class="font-bold mb-2" id="el-l1wp8gkb">AWS Machine Learning Specialty</h4>
+                <p class="text-neutral-400" id="el-se87o9dx">Amazon Web Services</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        -->
+      </div>
+    </div>
+  </section>
+</div>
+</htmlcode>
+              
+              </element><element id="10fafb5b-5586-4d94-8853-8e5065439fd6" data-section-id="10fafb5b-5586-4d94-8853-8e5065439fd6">
+
+
+                
+                
+                <htmlcode id="el-yves5y93">
+<div id="root">
+  <section id="projects_showcase" class="py-20 bg-neutral-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-bold text-center mb-16 animate__animated animate__fadeInUp">
+            Project <span class="text-blue-600">Showcase</span>
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Project 1 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 animate__animated animate__fadeInLeft">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-neutral-800">AI-Powered PDF Query System</h3>
+                        <div class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm">AI | NLP | LLM</div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="text-lg font-semibold mb-2">Project Overview</h4>
+                        <p class="text-neutral-600">
+                          Developed an LLM-powered system that enables users to query PDFs in natural language, extracting relevant information efficiently.
+                        </p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="text-lg font-semibold mb-2">Key Achievements</h4>
+                        <ul class="list-disc pl-5 text-neutral-600">
+                            <li>Integrated Llama 2 fine-tuned with LoRA for improved response accuracy.</li>
+                            <li>Implemented ChromaDB for vector-based document retrieval, optimizing search performance.</li>
+                            <li>Automated text extraction and processing to enhance user experience.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="text-lg font-semibold mb-2">Tech Stack</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-neutral-100 text-neutral-600 rounded-full text-sm">Python</span>
+                            <span class="px-3 py-1 bg-neutral-100 text-neutral-600 rounded-full text-sm">Llama 2</span>
+                            <span class="px-3 py-1 bg-neutral-100 text-neutral-600 rounded-full text-sm">LoRA</span>
+                            <span class="px-3 py-1 bg-neutral-100 text-neutral-600 rounded-full text-sm">LangChain</span>
+                            <span class="px-3 py-1 bg-neutral-100 text-neutral-600 rounded-full text-sm">ChromaDB</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-end items-center">
+                        <a href="https://github.com/username/predictive-dashboard" class="text-neutral-600 hover:text-neutral-800 flex items-center">
+                            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                            </svg>
+                            Github
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 animate__animated animate__fadeInRight">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-neutral-800">Supermarket Sales Analysis & Prediction</h3>
+                        <div class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-sm">ML</div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="text-lg font-semibold mb-2">Project Overview</h4>
+                        <p class="text-neutral-600">
+                          Analyzed supermarket sales data to identify key trends and developed predictive models to forecast future sales.
+                        </p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="text-lg font-semibold mb-2">Key Achievements</h4>
+                        <ul class="list-disc pl-5 text-neutral-600">
+                            <li>Built Linear Regression, Random Forest, Decision Tree, and K-Means Clustering models for sales prediction.</li>
+                            <li>Improved forecasting accuracy with hyperparameter tuning and feature engineering.</li>
+                            <li>Provided actionable insights through data visualization.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="text-lg font-semibold mb-2">Tech Stack</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-neutral-100 text-neutral-600 rounded-full text-sm">Python</span>
+                            <span class="px-3 py-1 bg-neutral-100 text-neutral-600 rounded-full text-sm">Pandas</span>
+                            <span class="px-3 py-1 bg-neutral-100 text-neutral-600 rounded-full text-sm">Numpy</span>
+                            <span class="px-3 py-1 bg-neutral-100 text-neutral-600 rounded-full text-sm">scikit-learn</span>
+                            <span class="px-3 py-1 bg-neutral-100 text-neutral-600 rounded-full text-sm">Matplotlib</span>
+                            <span class="px-3 py-1 bg-neutral-100 text-neutral-600 rounded-full text-sm">Seaborn</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-end items-center">
+                        <a href="https://github.com/username/ecommerce-microservices" class="text-neutral-600 hover:text-neutral-800 flex items-center">
+                            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                            </svg>
+                            Github
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 animate__animated animate__fadeInLeft">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-neutral-800">Predictive Modeling of House Prices</h3>
+                        <div class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm">ML</div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="text-lg font-semibold mb-2">Project Overview</h4>
+                        <p class="text-neutral-600">
+                          Developed a machine learning model to predict house prices in Ames, Iowa, using historical real estate data.
+                        </p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="text-lg font-semibold mb-2">Key Achievements</h4>
+                        <ul class="list-disc pl-5 text-neutral-600">
+                            <li>Achieved an RMSE of 0.11 and an explained variance of 0.90 using Gradient Boosting.</li>
+                            <li>Conducted feature engineering and outlier detection to enhance model performance.</li>
+                            <li>Created a comparative analysis of different ML algorithms.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="text-lg font-semibold mb-2">Tech Stack</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-neutral-100 text-neutral-600 rounded-full text-sm">Python</span>
+                            <span class="px-3 py-1 bg-neutral-100 text-neutral-600 rounded-full text-sm">scikit-learn</span>
+                            <span class="px-3 py-1 bg-neutral-100 text-neutral-600 rounded-full text-sm">XGBoost</span>
+                            <span class="px-3 py-1 bg-neutral-100 text-neutral-600 rounded-full text-sm">Pandas</span>
+                            <span class="px-3 py-1 bg-neutral-100 text-neutral-600 rounded-full text-sm">Matplotlib</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-end items-center">
+                        <a href="https://github.com/username/ai-content-generator" class="text-neutral-600 hover:text-neutral-800 flex items-center">
+                            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                            </svg>
+                            Github
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 animate__animated animate__fadeInRight">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-neutral-800">Predictive Modeling for Car Accident Severity</h3>
+                        <div class="bg-yellow-100 text-yellow-600 px-3 py-1 rounded-full text-sm">ML</div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="text-lg font-semibold mb-2">Project Overview</h4>
+                        <p class="text-neutral-600">
+                          Designed a machine learning model to predict accident severity and identify high-risk areas.
+                        </p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="text-lg font-semibold mb-2">Key Achievements</h4>
+                        <ul class="list-disc pl-5 text-neutral-600">
+                            <li>Developed predictive models using Decision Trees, Random Forest, Gradient Boosting, and XGBoost.</li>
+                            <li>Conducted A/B testing to evaluate the impact of different model parameters.</li>
+                            <li>Provided data-driven insights to improve road safety policies.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="text-lg font-semibold mb-2">Tech Stack</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-neutral-100 text-neutral-600 rounded-full text-sm">Python</span>
+                            <span class="px-3 py-1 bg-neutral-100 text-neutral-600 rounded-full text-sm">scikit-learn</span>
+                            <span class="px-3 py-1 bg-neutral-100 text-neutral-600 rounded-full text-sm">XGBoost</span>
+                            <span class="px-3 py-1 bg-neutral-100 text-neutral-600 rounded-full text-sm">Pandas</span>
+                            <span class="px-3 py-1 bg-neutral-100 text-neutral-600 rounded-full text-sm">Matplotlib</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-end items-center">
+                        <a href="https://github.com/username/blockchain-voting" class="text-neutral-600 hover:text-neutral-800 flex items-center">
+                            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                            </svg>
+                            Github
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 animate__animated animate__fadeInRight">
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-neutral-800">Global Natural Disasters: Trends and Insights</h3>
+                        <div class="bg-orange-100 text-orange-600 px-3 py-1 rounded-full text-sm">BI</div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="text-lg font-semibold mb-2">Project Overview</h4>
+                        <p class="text-neutral-600">
+                          Analyzed 50 years of global disaster data (1970-2021) to uncover patterns in severity, frequency, and impact.
+                        </p>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="text-lg font-semibold mb-2">Key Achievements</h4>
+                        <ul class="list-disc pl-5 text-neutral-600">
+                            <li>Built an interactive Tableau dashboard visualizing disaster trends.</li>
+                            <li>Identified high-risk regions and disaster types based on historical data.</li>
+                            <li>Provided key insights for disaster management and preparedness.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h4 class="text-lg font-semibold mb-2">Tech Stack</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-neutral-100 text-neutral-600 rounded-full text-sm">Python</span>
+                            <span class="px-3 py-1 bg-neutral-100 text-neutral-600 rounded-full text-sm">Tableau</span>
+                            <span class="px-3 py-1 bg-neutral-100 text-neutral-600 rounded-full text-sm">Pandas</span>
+                            <span class="px-3 py-1 bg-neutral-100 text-neutral-600 rounded-full text-sm">Matplotlib</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-end items-center">
+                        <a href="https://github.com/username/blockchain-voting" class="text-neutral-600 hover:text-neutral-800 flex items-center">
+                            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                            </svg>
+                            Github
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-12">
+            <a href="https://github.com/AnbuSuriyaK" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-300 animate__animated animate__fadeInUp">
+                View All Projects
+                <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+</div>
+</htmlcode>
+              
+              
+              </element><element id="f69f1670-a73c-463a-8ce0-601a22bde883" data-section-id="f69f1670-a73c-463a-8ce0-601a22bde883">
+
+
+                
+                <htmlcode id="el-ykecwk5t">
+<div id="root">
+  
+</div>
+</htmlcode>
+              
+              </element><element id="976aeb96-00b8-4eb8-a479-d6b11a412021" data-section-id="976aeb96-00b8-4eb8-a479-d6b11a412021">
+
+
+                
+                
+                <htmlcode id="el-e8f5oowd">
+<div id="root">
+  
+</div>
+</htmlcode>
+              
+              
+              </element><element id="fbbf7f97-4350-4097-b39c-0692b98a72b3" data-section-id="fbbf7f97-4350-4097-b39c-0692b98a72b3">
+
+
+                
+                
+                
+                <htmlcode id="el-cvjq33d5">
+<div id="root">
+  <section id="contact" class="py-20 bg-neutral-900" style="background-color: rgb(23, 23, 23); color: rgb(255, 255, 255);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="el-xpr39qzo">
+      <h2 class="text-4xl font-bold text-center text-neutral-900 mb-16 animate__animated animate__fadeInUp" id="el-esjge2k0" contenteditable="false" style="color: rgb(255, 255, 255);">
+        Get in <span class="text-blue-500" id="el-guzedcgp">Touch</span>
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-12" id="el-bpigqjlb">
+        <!-- Contact Info -->
+        <div class="text-neutral-800 space-y-8 animate__animated animate__fadeInLeft" id="el-q7vj5zgv">
+          <div class="bg-white p-6 rounded-lg hover:bg-gray-50 transition-all duration-300 shadow-lg" id="el-emzd92o4" style="background-color: rgb(38, 38, 38); color: rgb(255, 255, 255);">
+            <h3 class="text-2xl font-bold mb-6" id="el-1lz4eu1d">Let's Connect</h3>
+            <div class="space-y-4" id="el-xhodel88">
+              <div class="flex items-center" id="el-61t5yw93">
+                <svg class="w-6 h-6 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="el-30li5j7c">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" id="el-rpa2mb5m"></path>
+                </svg>
+                <a href="mailto:contact@example.com" class="hover:text-blue-500 transition-colors duration-300" id="el-t0wmgeqj">anbusuriyak@gmail.com</a>
+              </div>
+              <div class="flex items-center" id="el-oez20dg7">
+                <svg class="w-6 h-6 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="el-6i2hjkeg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" id="el-y4wtdh9i"></path>
+                </svg>
+                <a href="tel:+1234567890" class="hover:text-blue-500 transition-colors duration-300" id="el-rfo896mv">+1 (312) 843-7255</a>
+              </div>
+              <div class="flex items-center" id="el-s7kq0r84">
+                <svg class="w-6 h-6 text-blue-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="el-q5mi6rtw">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" id="el-bfx2i4t5"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" id="el-l3nz6je9"></path>
+                </svg>
+                <span id="el-8oniiffj">Chicago, IL</span>
+              </div>
+            </div>
+
+            <div class="mt-8" id="el-hrkv6fja">
+              <h4 class="text-xl font-semibold mb-4" id="el-an8i746x">Social Links</h4>
+              <div class="flex space-x-4" id="el-qpdloqpz">
+                <a href="https://github.com/AnbuSuriyaK" target="_blank" rel="noopener noreferrer" class="text-neutral-600 hover:text-blue-500 transition-colors duration-300" id="el-eoay3ku0">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" id="el-la3yy62f">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" id="el-01xkp1pu"></path>
+                  </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/anbu-suriya-kumar/" target="_blank" rel="noopener noreferrer" class="text-neutral-600 hover:text-blue-500 transition-colors duration-300" id="el-srz3taig">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" id="el-8asyc7cf">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" id="el-ltexc7nd"></path>
+                  </svg>
+                </a>
+                <a href="https://x.com/CineDataNomad" target="_blank" rel="noopener noreferrer" class="text-neutral-600 hover:text-blue-500 transition-colors duration-300" id="el-0k67hdb2">
+                  <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" id="el-c7zzscl2">
+                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" id="el-a8jgow1j"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            
+            <!-- Resume Download Button -->
+            <div class="mt-8">
+              <a href="resume.pdf" download="AnbuSuriya.pdf" target="_blank" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-300">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                Download Resume
+              </a>
+            </div>
+          </div>
+        </div>
+         
+
+        <!-- Contact Form -->
+        <div class="animate__animated animate__fadeInRight" id="el-tqckur89">
+          <form class="space-y-6" id="el-w9i147ht">
+            <div id="el-uwza91q6">
+              <label for="name" class="block text-sm font-medium text-neutral-900" id="el-t0whni6y" style="color: rgb(255, 255, 255);">Name</label>
+              <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-md bg-white border-gray-300 text-neutral-900 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+            </div>
+            <div id="el-tzndsjsv">
+              <label for="email" class="block text-sm font-medium text-neutral-900" id="el-x3b66503" style="color: rgb(255, 255, 255);">Email</label>
+              <input type="email" id="email" name="email" required class="mt-1 block w-full rounded-md bg-white border-gray-300 text-neutral-900 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+            </div>
+            <div id="el-ou1zjf2f">
+              <label for="subject" class="block text-sm font-medium text-neutral-900" id="el-4sjbf9dt" style="color: rgb(255, 255, 255);">Subject</label>
+              <input type="text" id="subject" name="subject" required class="mt-1 block w-full rounded-md bg-white border-gray-300 text-neutral-900 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+            </div>
+            <div id="el-2m35c9ci">
+              <label for="message" class="block text-sm font-medium text-neutral-900" id="el-bmzvwryj" style="color: rgb(255, 255, 255);">Message</label>
+              <textarea id="message" name="message" rows="4" required class="mt-1 block w-full rounded-md bg-white border-gray-300 text-neutral-900 shadow-sm focus:border-blue-500 focus:ring-blue-500" style="margin-top: 4px; margin-bottom: 0px; height: 146px;"></textarea>
+            </div>
+            <div id="el-70zy5jl2">
+              <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-300" id="el-x3bvxo6z">
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+        
+
+      </div>
+    </div>
+  </section>
+</div>
+</htmlcode>
+              
+              
+              
+              </element><element id="71ac2265-cc65-4ea5-9531-8bca21ce1a77" data-section-id="71ac2265-cc65-4ea5-9531-8bca21ce1a77">
+
+
+                
+                <htmlcode id="el-t472y8k6">
+<div id="root">
+  <footer id="footer" class="bg-neutral-900 text-white pt-12 pb-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="el-h0ode2nj">
+      <!-- Commenting this section
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8" id="el-72w1orz3">
+        
+     
+        <div class="col-span-2" id="el-unehg1fc">
+          <h3 class="text-2xl font-bold mb-4" id="el-7a60mftu">[ Anbu Suriya Kumar ]</h3>
+          <p class="text-neutral-400 mb-4" id="el-5fvk1dn5">
+            Transforming complex data into actionable insights. Passionate about machine learning, AI, and data-driven solutions.
+          </p>
+          <div class="flex space-x-4" id="el-9qspqopx">
+            <a href="#" class="text-neutral-400 hover:text-blue-500 transition-colors duration-300" id="el-7xb912g0">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" id="el-7uogzicf">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" id="el-6tfv9xs3"></path>
+              </svg>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-blue-500 transition-colors duration-300" id="el-ru6058xj">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" id="el-1a2dryix">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" id="el-jereklat"></path>
+              </svg>
+            </a>
+            <a href="#" class="text-neutral-400 hover:text-blue-500 transition-colors duration-300" id="el-p7qouvg1">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" id="el-swregrbq">
+                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" id="el-1ye84wlb"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+       
+        <div id="el-1fh5tn85">
+          <h4 class="text-lg font-semibold mb-4" id="el-atsxe8il">Quick Links</h4>
+          <ul class="space-y-2" id="el-lxa2jurg">
+            <li id="el-zvn1rp24">
+              <a href="#hero" class="text-neutral-400 hover:text-blue-500 transition-colors duration-300" id="el-6vo9p87y">Home</a>
+            </li>
+            <li id="el-qpsc8xlo">
+              <a href="#professional_summary" class="text-neutral-400 hover:text-blue-500 transition-colors duration-300" id="el-vz673x8m">About</a>
+            </li>
+            <li id="el-11lhug4x">
+              <a href="#projects_showcase" class="text-neutral-400 hover:text-blue-500 transition-colors duration-300" id="el-47vdk8jq">Projects</a>
+            </li>
+            <li id="el-o02g7o2n">
+              <a href="#contact" class="text-neutral-400 hover:text-blue-500 transition-colors duration-300" id="el-qg07tspu">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        
+        <div id="el-bagxdr5x">
+          <h4 class="text-lg font-semibold mb-4" id="el-gt8y98h7">Contact</h4>
+          <ul class="space-y-2" id="el-flh5s8z4">
+            <li class="flex items-center text-neutral-400" id="el-1rv7ajy5">
+              <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="el-z0l8a3ry">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" id="el-ct0c7of0"></path>
+              </svg>
+              contact@example.com
+            </li>
+            <li class="flex items-center text-neutral-400" id="el-hx7s3zea">
+              <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="el-incgfjnj">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" id="el-730nmbzw"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" id="el-l6wqtyfd"></path>
+              </svg>
+              San Francisco, CA
+            </li>
+          </ul>
+        </div>
+      </div>
+      -->
+      <div class="border-t border-neutral-800 pt-6" id="el-sdp32zd4">
+        <div class="flex flex-col md:flex-row justify-between items-center" id="el-lvh2efz2">
+          <p class="text-neutral-400 text-sm" id="el-ck1x0usv">
+            © 2024 AnbuSuriyaKumar. All rights reserved.
+          </p>
+          <!-- Commenting this section
+          <div class="flex space-x-6 mt-4 md:mt-0" id="el-rtt1xh4l">
+            <a href="#" class="text-neutral-400 hover:text-blue-500 text-sm transition-colors duration-300" id="el-scu4vc8q">Privacy Policy</a>
+            <a href="#" class="text-neutral-400 hover:text-blue-500 text-sm transition-colors duration-300" id="el-leshouys">Terms of Service</a>
+            <a href="#" class="text-neutral-400 hover:text-blue-500 text-sm transition-colors duration-300" id="el-eaddp9jt">Cookie Policy</a>
+          </div>
+          -->
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+</htmlcode>
+              
+              </element></div>
+            <div id="page_complete">
+            <script src="/edit/edit.js"></script>
+            <script>
+                console.log('Page complete');
+                
+            </script>
+            </body>
+            </html>
+          
